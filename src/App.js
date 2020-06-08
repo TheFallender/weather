@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
+//Components
+import Header from './components/header/Header'
+
+//App.css
 import './App.css';
+import './components/Style.css'
+import LocationList from './components/location/LocationList';
+import Weather from './components/weather/Weather';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	//Hook for the data loaded
+	const [response, setResponse] = useState(null);
+	const [geoPoint, setGeoPoint] = useState(null);
+
+	//Point check
+	const setPointAndCheck = (point) => {
+		if (point)
+			setGeoPoint(
+				<Weather coords={point}/>
+			)
+		else 
+			setGeoPoint(null);
+	}
+
+	//Status of the API key
+	let apiStatus = localStorage.getItem("mapbox_API_key") ? true : false;
+
+	//Return the data
+	return (
+		<div className="App">
+			<Header siteName={"Mapbox"} updateResponse={setResponse} apiSetted={apiStatus}/>
+			{apiStatus ?
+				<div className="Content">
+					{response ?
+						<LocationList data={response} setPointAndCheck={setPointAndCheck}/>
+					:
+						<p><b>Search Something</b></p>
+					}
+					{geoPoint ?
+						geoPoint
+					:
+						null
+					}
+				</div>
+			:
+				<div className="Content">
+					<h3>Please enter your API key before using the aplication.</h3>
+				</div>
+			}
+		</div>
+	);
 }
 
 export default App;
