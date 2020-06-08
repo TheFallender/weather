@@ -6,7 +6,7 @@ To launch it, you have to:
 1. Donwload the release.
 2. Extract the release on a folder of your preference.
 3. Open the folder and run `yarn start` to run the code.
-4. A tab will open on your browser pointing to: [localhost:3000](localhost:3000)
+4. A tab will open on your browser pointing to: [localhost:3000](http://localhost:3000)
 
 If you do not want to go through this process. You can see a working version on:
 [thefallender.github.io/weather](https://thefallender.github.io/weather)
