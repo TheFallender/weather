@@ -9,4 +9,4 @@ To launch it, you have to:
 4. A tab will open on your browser pointing to: [localhost:3000](http://localhost:3000)
 
 If you do not want to go through this process. You can see a working version on:
-[thefallender.github.io/weather](https://thefallender.github.io/weather)
+[~~thefallender.github.io/weather~~](https://thefallender.github.io/weather) Site is offline now, you can still build it on local.
